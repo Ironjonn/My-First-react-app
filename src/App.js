@@ -9,6 +9,7 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
+          <div>Mosqui agrego este div pto</div>
         </p>
         <a
           className="App-link"
