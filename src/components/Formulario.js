@@ -24,7 +24,6 @@ const Formulario = () => {
             alert("no valido su usuario")
 
         }
-
     }
 
     return (
