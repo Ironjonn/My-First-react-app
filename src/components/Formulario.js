@@ -37,7 +37,7 @@ const Formulario = () => {
             </form>
             <div> {datos.usuario} </div>
             <div> {datos.contraseña} </div>
-
+            <p>moski hay checast este pedo perro ya lo subi te la comes xD </p>
         </div>
 
         <div>    
