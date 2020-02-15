@@ -1,15 +1,11 @@
 import React, { useState } from 'react';
-import logo from '../logo.svg';
-import '../App.css';
 
-    const Formulario = () => {
-        const [datos, setDatos] = useState({
-            usuario: '',
-            contraseña: '',
-            mensage: '',
-            src: ''
-        
-        });
+const Formulario = () => {
+    const [datos, setDatos] = useState({
+        usuario: '',
+        contraseña: ''
+
+    });
 
     const SetData = (event) => {
         setDatos({
@@ -22,24 +18,19 @@ import '../App.css';
         event.preventDefault();
 
         if (datos.usuario === 'teamhorda' && datos.contraseña === "123") {
-            setDatos({
-                ...datos,
-                mensage: <h1 class=" alert-success" > Welcome {datos.usuario}!!</h1>
-               
-                    
-            });
+            alert('enviando datos...' + datos.usuario + ' ' + datos.contraseña)
+            alert("se valido su usuario")
         } else {
-            setDatos({
-                ...datos,
-                mensage: <h1 class=" alert-danger ">No valido el usuario!</h1>
-            });
+            alert("no valido su usuario")
+
         }
+
     }
 
     return (
             <div className="container mt-5">    
-            <div > 
-                <img className="App-logo"   src={logo} ></img>
+                <div>
+                    <img src=""></img>
                 </div>
                 <form onSubmit={enviarDatos}  >
                     <div className="form-group">
@@ -51,9 +42,10 @@ import '../App.css';
                         <input type="text" placeholder="Ingrese su contraseña" className="form-control" name="contraseña" onChange={SetData}  ></input>
                     </div>
                     <div className="form-group">    
+                        <div> {datos.usuario} </div>
+                        <div> {datos.contraseña} </div>
                         <button className="btn btn-primary mt-3" type="submit">Continuar</button>
                     </div>
-                    <div>{datos.mensage}</div>
                 </form>
             </div>
          );
