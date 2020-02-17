@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Productos = () => {
-    return(
+const Notas = () => {
+    return (
         <div>
-            <div>Productos</div>
+            <div>Notas</div>
             <div class="spinner-border text-primary" role="status">
                 <span class="sr-only">Loading...</span>
             </div>
@@ -11,4 +11,4 @@ const Productos = () => {
     );
 }
 
-export default Productos;
+export default Notas;
