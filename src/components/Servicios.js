@@ -2,30 +2,26 @@ import React from 'react';
 import axios from 'axios';
 
 
-const Users = () => {
-console.log("hola");
-
-
-    axios.get('http://localhost:4000/api/users').then(resultado=>{
-        console.log(resultado.data);
-        alert(resultado.data[0].Nombre)
-        alert(resultado.data[1].Nombre)
-        alert(resultado.data[2].Nombre)
-    }).catch(console.log);
+const Servicios = () => {
+    console.log("hola");
 
 
 
-    axios.post('http://localhost:4000/api/users', {
-        Nombre: "juanito",
-        Apellido1: "putito",
-        Apellido2: "jotito",
-        Perfil: "cajera"
+
+
+
+    axios.post('https://taecel.com/app/api/getProducts', {
+        nip: "25d55ad283aa400af464",
+        key: "25d55ad283aa400af464c76d713c07ad"
+        
     }).then(function (response) {
-            console.log(response);
-        }).catch(function (error) {
-            console.log(error);
-        });
+        console.log(response);
+    }).catch(function (error) {
+        console.log(error);
+    });
 
+
+    
 
     return (
         <div>
@@ -64,4 +60,4 @@ console.log("hola");
     );
 }
 
-export default Users;
+export default Servicios;

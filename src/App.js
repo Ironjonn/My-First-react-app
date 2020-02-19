@@ -13,6 +13,7 @@ import Home from './components/Home';
 import Users from './components/Users';
 import Notas from './components/Notas';
 import Navbar from './components/Navbar';
+import Servicios from './components/Servicios';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/Productos" exact component={Productos} />
         <Route path="/Users" exact component={Users} />
         <Route path="/Notas" exact component={Notas} />
+        <Route path="/Servicios" exact component={Servicios} />
       </div>
     </Router>
   );
