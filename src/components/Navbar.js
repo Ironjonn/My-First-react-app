@@ -11,9 +11,10 @@ const Navbar = () => {
                 <Link to="/Users" className="nav-link">Users</Link>
                 <Link to="/Notas" className="nav-link">Notas</Link>
                 <Link to="/Servicios" className="nav-link">Servicios</Link>
+                <Link to="/Pokedex" className="nav-link">Pokedex</Link>
             </nav>
         </div>
     );
 }
 
-export default Navbar
+export default Navbar;

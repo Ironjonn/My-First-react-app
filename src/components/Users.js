@@ -3,19 +3,17 @@ import axios from 'axios';
 
 
 const Users = () => {
-console.log("hola");
 
 
-    axios.get('http://localhost:4000/api/users').then(resultado=>{
+
+     axios.get('http://localhost:4000/api/users').then(resultado=>{
         console.log(resultado.data);
-        alert(resultado.data[0].Nombre)
-        alert(resultado.data[1].Nombre)
-        alert(resultado.data[2].Nombre)
+       
     }).catch(console.log);
+ 
 
 
-
-    axios.post('http://localhost:4000/api/users', {
+    /* axios.post('http://localhost:4000/api/users', {
         Nombre: "juanito",
         Apellido1: "putito",
         Apellido2: "jotito",
@@ -24,7 +22,7 @@ console.log("hola");
             console.log(response);
         }).catch(function (error) {
             console.log(error);
-        });
+        }); */
 
 
     return (

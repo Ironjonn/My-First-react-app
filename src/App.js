@@ -14,6 +14,7 @@ import Users from './components/Users';
 import Notas from './components/Notas';
 import Navbar from './components/Navbar';
 import Servicios from './components/Servicios';
+import Pokedex from './components/Pokedex';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/Users" exact component={Users} />
         <Route path="/Notas" exact component={Notas} />
         <Route path="/Servicios" exact component={Servicios} />
+        <Route path="/Pokedex" exact component={Pokedex} />
       </div>
     </Router>
   );

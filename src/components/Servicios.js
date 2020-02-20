@@ -3,22 +3,38 @@ import axios from 'axios';
 
 
 const Servicios = () => {
-    console.log("hola");
+    
 
 
 
 
+    /* fetch('https://taecel.com/app/api/getProducts', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+           'Access-Control-Allow-Origin': '*'
+        },
+        body: JSON.stringify({ "nip": "25d55ad283aa400af464", "key": "25d55ad283aa400af464c76d713c07ad" })
+       
+    })
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            console.log('data = ', data);
+        })
+        .catch(function (err) {
+            console.error(err);
+        });  */
+
+  
 
 
-    axios.post('https://taecel.com/app/api/getProducts', {
-        nip: "25d55ad283aa400af464",
-        key: "25d55ad283aa400af464c76d713c07ad"
-        
-    }).then(function (response) {
-        console.log(response);
-    }).catch(function (error) {
-        console.log(error);
-    });
+ axios.get('http://localhost:4000/api/servicios').then(resultado=>{
+      console.log(resultado.data);
+     
+  }).catch(console.log);
+
 
 
     
@@ -26,36 +42,9 @@ const Servicios = () => {
     return (
         <div>
             <div>Users</div>
-            <table className="table table-dark">
-                <thead className="bg-primary">
-                    <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div className="spinner-border text-primary" role="status">
+                <span className="sr-only">Loading...</span>
+            </div>
         </div>
     );
 }
