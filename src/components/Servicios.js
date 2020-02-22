@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-
+import Navbar from '../components/Navbar';
 
 const Servicios = () => {
     
@@ -41,7 +41,7 @@ const Servicios = () => {
 
     return (
         <div>
-            <div>Users</div>
+            <Navbar />
             <div className="spinner-border text-primary" role="status">
                 <span className="sr-only">Loading...</span>
             </div>

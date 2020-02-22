@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import logo from '../logo.svg';
 import '../App.css';
+import { useHistory } from 'react-router-dom';
 
-    const Formulario = () => {
+const Formulario = () => {
 
+    let history = useHistory();
         
         const [datos, setDatos] = useState({
             usuario: '',
@@ -24,12 +26,12 @@ import '../App.css';
         event.preventDefault();
 
         if (datos.usuario === 'teamhorda' && datos.contraseña === "123") {
+
             setDatos({
                 ...datos,
-                mensage: <h1 class=" alert-success" > Welcome {datos.usuario}!!</h1>
-               
-                    
+                mensage: history.push("/home")
             });
+           
         } else {
             setDatos({
                 ...datos,
@@ -37,6 +39,10 @@ import '../App.css';
             });
         }
     }
+
+  
+
+    
 
     return (
             <div className="container mt-5">    
