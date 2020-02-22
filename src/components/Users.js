@@ -48,10 +48,10 @@ const Users = () => {
     }
 
 
-     /* axios.get('http://localhost:4000/api/users').then(resultado=>{
+      axios.get('http://localhost:4000/api/users').then(resultado=>{
         console.log(resultado.data);
        
-    }).catch(console.log); */
+    }).catch(console.log); 
  
    
 

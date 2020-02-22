@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import logo from '../logo.svg';
 import '../App.css';
 import { useHistory } from 'react-router-dom';
+import axios from 'axios';
 
 const Formulario = () => {
 
@@ -25,19 +26,27 @@ const Formulario = () => {
     const enviarDatos = (event) => {
         event.preventDefault();
 
-        if (datos.usuario === 'teamhorda' && datos.contraseña === "123") {
+        axios.get('http://localhost:4000/api/users/' + datos.usuario).then(resultado => {
+            console.log(resultado.data);
 
-            setDatos({
-                ...datos,
-                mensage: history.push("/home")
-            });
+
+            if (resultado.data.length > 0) {
+                setDatos({
+                    ...datos,
+                    mensage: history.push("/home")
+                });
+                alert("Welcome" +  datos.usuario)
+            }else{
+
+                alert("no tiene derecho abrigese")
+            }
+
+        }).catch(console.log);
+
+
+            
            
-        } else {
-            setDatos({
-                ...datos,
-                mensage: <h1 class=" alert-danger ">No valido el usuario!</h1>
-            });
-        }
+       
     }
 
   
@@ -45,25 +54,24 @@ const Formulario = () => {
     
 
     return (
-            <div className="container mt-5">    
-            <div > 
-                <img className="App-logo"   src={logo} ></img>
+        <div className="text-center container" >    
+            
+            <form className="form-signin" onSubmit={enviarDatos}  >
+                <img className="App-logo" src={logo} ></img>
+                <div className="form-group">
+                    <label for="exampleInputEmail1">Usuario</label>
+                    <input style={{ width: "300px", marginLeft: "36%" }} class="text-center form-control mr-auto" type="text" placeholder=" Ingrese su Usuario" name="usuario" onChange={SetData} ></input>
                 </div>
-                <form onSubmit={enviarDatos}  >
-                    <div className="form-group">
-                        <label for="exampleInputEmail1">Usuario</label>
-                        <input type="text" placeholder=" Ingrese su Usuario" className="form-control" name="usuario" onChange={SetData} ></input>
-                    </div>
-                    <div className="form-group">
-                        <label for="exampleInputPassword1">Contraseña</label>
-                        <input type="text" placeholder="Ingrese su contraseña" className="form-control" name="contraseña" onChange={SetData}  ></input>
-                    </div>
-                    <div className="form-group">    
-                        <button className="btn btn-primary mt-3" type="submit">Continuar</button>
-                    </div>
-                    <div>{datos.mensage}</div>
-                </form>
-            </div>
+                <div className="form-group">
+                    <label for="exampleInputPassword1">Contraseña</label>
+                    <input style={{ width: "300px", marginLeft: "36%" }} type="text" placeholder="Ingrese su contraseña" className="text-center form-control" name="contraseña" onChange={SetData}  ></input>
+                </div>
+                <div className="form-group">    
+                    <button style={{ width: "200px", marginLeft: "40%" }} class="btn  btn-primary btn-block" type="submit">Continuar</button>
+                </div>
+                <div>{datos.mensage}</div>
+            </form>
+        </div>
          );
 
 }
