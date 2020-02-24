@@ -61,7 +61,7 @@ const Users = () => {
     return (
         <div>
             <Navbar />
-            <table className="table table-dark">
+            <table className="table table-primary mt-5">
                 <thead className="bg-primary">
                     <tr>
                         <th scope="col">#</th>
@@ -95,25 +95,25 @@ const Users = () => {
 
 
    
-            <div className="card bg-dark col-4 text-light"  >
-                    <div className="card-header bg-primary">
+            <div className="card text-center       text-light" style={{ width: "400px", backgroundColor: "#B8DAFF", zIndex: "5"}}>
+                <div className="card-header bg-primary">
                         <h4>Ingrese un nuevo usuario</h4>
                     </div>
-                            <form id="product-form" className="card-body " onSubmit={enviarDatos} >
+                            <form id="product-form" className="card-body text-center " onSubmit={enviarDatos} >
                         <div className="form-group">
-                                    <input type="text" placeholder="Nombre" className="form-control" name="Nombre" onChange={SetData}/>
+                                    <input type="text" placeholder="Nombre" className="form-control text-center" name="Nombre" onChange={SetData}/>
                         </div>
                         <div className="form-group">
-                                    <input type="text" placeholder="Apellido Materno" className="form-control" name="Apellido1" onChange={SetData}/>
+                                    <input type="text" placeholder="Apellido Materno" className="form-control text-center" name="Apellido1" onChange={SetData}/>
                         </div>
                         <div className="form-group">
-                                    <input type="text" placeholder="Apellido Paterno" className="form-control" name="Apellido2" onChange={SetData}/>
+                                    <input type="text" placeholder="Apellido Paterno" className="form-control text-center" name="Apellido2" onChange={SetData}/>
                         </div>
                         <div className="form-group">
-                                    <input type="text" placeholder="Perfil" className="form-control" name="Perfil" onChange={SetData} />
+                                    <input type="text" placeholder="Perfil" className="form-control text-center" name="Perfil" onChange={SetData} />
                         </div>
                         <div className="form-group">
-                                    <button className="btn btn-primary mt-3" type="submit">Continuar</button>
+                                    <button className="btn btn-success mt-3" type="submit">Continuar</button>
                         </div>
                     </form>
                 </div>
