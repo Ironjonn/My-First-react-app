@@ -8,20 +8,21 @@ const Pokedex = () => {
 
     
 
-   /*  fetch('https://pokeapi.co/api/v2/pokemon/25')
+    fetch('https://pokeapi.co/api/v2/pokemon/25')
         .then(function (response) {
             return response.json();
         })
         .then(function (data) {
             
-            let listItems = Object.values(data)
-             numeros.obj = numeros.pokemonRes[13] 
+            console.log(Object.values(data));
+            
+            
             
             
         })
         .catch(function (err) {
             console.error(err);
-        })    */
+        })    
 
 
     

@@ -1,16 +1,47 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Navbar from '../components/Navbar';
+import Tablas from './Tablas';
 
+import { AgGridReact } from 'ag-grid-react';
+import 'ag-grid-community/dist/styles/ag-grid.css';
+import 'ag-grid-community/dist/styles/ag-theme-balham.css';
 
 
 
 
 const Users = () => {
 
+
+
+   
+    const [Datausuarios, setDatausuarios] = useState([])
+
+    console.log(Datausuarios);
     
+    
+  /*   const [grid, setgrid] = useState({
+        columnDefs: [{
+            headerName: "Make", field: "make"
+        }, {
+            headerName: "Model", field: "model"
+        }, {
+            headerName: "Price", field: "price"
+        }],
+        rowData: [{
+            make: "Toyota", model: "Celica", price: 35000
+        }, {
+            make: "Ford", model: "Mondeo", price: 32000
+        }, {
+            make: "Porsche", model: "Boxter", price: 72000
+        }]
 
 
+    } ) */
+
+
+    
+    
     const [AgregarUsuarios, setAgregarUsuarios] = useState({
         Nombre: '',
         Apellido1: '',
@@ -48,10 +79,20 @@ const Users = () => {
     }
 
 
-      axios.get('http://localhost:4000/api/users').then(resultado=>{
-        console.log(resultado.data);
-       
-    }).catch(console.log); 
+     useEffect( () =>{
+         axios
+            .get('http://localhost:4000/api/users')
+             .then(resultado => {
+                 console.log(resultado.data);
+                 setDatausuarios(resultado.data)
+             }).catch(console.log); 
+     }, []);
+
+
+
+
+
+     
  
    
 
@@ -61,39 +102,53 @@ const Users = () => {
     return (
         <div>
             <Navbar />
-            <table className="table table-primary mt-5">
-                <thead className="bg-primary">
+
+
+
+          {/*   <div className="ag-theme-balham" style={{height: '500px',width: '600px'}}>
+                <AgGridReact
+                    enableRangeSelection={true}
+                    enableFillHandle={true}
+                    columnDefs={grid.columnDefs}
+                    rowData={grid.rowData}>
+                </AgGridReact>
+            </div> */}
+            
+            <table class="table ">
+                <thead class="bg-info">
                     <tr>
-                        <th scope="col">#</th>
-                        <th scope="col">First</th>
-                        <th scope="col">Last</th>
-                        <th scope="col">Handle</th>
+                        <th scope="col">_id</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellido</th>
+                        <th scope="col">Apellido2</th>
+                        <th scope="col">Perfil</th>
+                        <th scope="col">Editar</th>
+                        <th scope="col">Borrar</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">2</th>
-                        <td>Jacob</td>
-                        <td>Thornton</td>
-                        <td>@fat</td>
-                    </tr>
-                    <tr>
-                        <th scope="row">3</th>
-                        <td>Larry</td>
-                        <td>the Bird</td>
-                        <td>@twitter</td>
-                    </tr>
+
+                    {
+                    Datausuarios.map( data => (
+                        
+                        
+                        <tr>
+                            <th scope="row" key={data._id}>{data._id}</th>
+                            <th scope="row" key={data.Nombre}>{data.Nombre}</th>
+                            <th scope="row" key={data.Apellido1}>{data.Apellido1}</th>
+                            <th scope="row" key={data.Apellido2}>{data.Apellido2}</th>
+                            <th scope="row" key={data.Perfil}>{data.Perfil}</th>
+                            <th scope="row"> <button className="btn btn-success">Editar</button></th>
+                            <th scope="row"> <button className="btn btn-danger">Borrar</button></th>
+                        
+                        </tr>
+
+
+                    ))}
                 </tbody>
             </table>
 
-
-
+                            <button></button>
    
             <div className="card text-center       text-light" style={{ width: "400px", backgroundColor: "#B8DAFF", zIndex: "5"}}>
                 <div className="card-header bg-primary">
@@ -117,10 +172,7 @@ const Users = () => {
                         </div>
                     </form>
                 </div>
-
-
-
-</div>
+            </div>
 
     );
 }
